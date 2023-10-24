@@ -1,13 +1,13 @@
 import { GetSpecialityDoc } from "../infraestructura/doctor.js";
 
-export function GetDoctorbySpeciality(req, res) {
+export async function GetDoctorbySpeciality(req, res) {
   if (!req.params.value)
     return res
       .status(404)
       .json({ status: 404, message: "Especialidad not found" });
   try {
     const speciality = req.query.speciality.toLowerCase();
-    let responseToUser = GetSpecialityDoc(speciality);
+    let responseToUser = await GetSpecialityDoc(speciality);
     res.status(200).json({ status: 200, result: responseToUser });
     return responseToUser;
   } catch (error) {

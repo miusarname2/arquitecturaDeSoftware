@@ -1,7 +1,10 @@
 import express from 'express';
 import session from 'express-session';
 import dotenv from 'dotenv';
-import { users } from "./controller/routes/user.routes.js";
+import { users } from "./app/user/aplicacion/user.routes.js";
+import { counsultingRoom } from "./app/counsultingRoom/aplicacion/counsultingRoom.routes.js";
+import { doctors } from "./app/doctors/aplicacion/doctor.routes.js";
+import { quotes } from "./app/quotes/aplicacion/quotes.routes.js";
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -26,3 +29,4 @@ index.use('/user',users)
 index.listen(index.get('port'), () => {
   console.log('Server on port ' + index.get('port'));
 });
+

@@ -5,7 +5,7 @@ import {
   getUserInAlphabeticalOrder,
 } from "./user.controller.js";
 
-const users = Router();
+export const users = Router();
 
 users.get("/", getUserInAlphabeticalOrder);
 
