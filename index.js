@@ -1,6 +1,7 @@
 import express from 'express';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import { users } from "./controller/routes/user.routes.js";
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -19,7 +20,7 @@ index.use(cors());
 index.use(express.json());
 
 // Routes 
-// Here goes the routes you want to define, or at least that's what I recommend.
+index.use('/user',users)
 
 // Server
 index.listen(index.get(port), () => {
