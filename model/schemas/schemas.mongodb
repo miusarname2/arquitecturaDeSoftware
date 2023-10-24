@@ -1,98 +1,48 @@
-use("insidencias-pruebas");
+use("ejercicio-citas")
 
-db.createCollection("reportes", {
+db.createCollection("users", {
+  
   validator: {
     $jsonSchema: {
+
       bsonType: "object",
       additionalProperties: false,
-      required: [
-        "categoria",
-        "tipo_De_Insidencia",
-        "fechaReporte",
-        "Area",
-        "Lugar",
-        "reportante",
-      ],
+      required: ["names", "phone", "address", "email", "genre", "attendant", "quotes"],
       properties: {
         _id: { bsonType: "objectId" },
-        categoria: {
-          bsonType: "string",
-          description: "categoria is required",
-          enum: ["leve", "moderada", "critica"],
-        },
-        tipo_De_Insidencia: {
-          bsonType: "string",
-          description: "tipo_De_Insidencia is required",
-          enum: ["Hardware", "software"],
-        },
-        fechaReporte: {
-          bsonType: "date",
-          description: "fechaReporte is required",
-        },
-        Area: {
-          bsonType: "string",
-          description: "Area is required",
-          enum: ["corvus", "endor", "skylab", "sputnik", "artemis", "apolo"],
-        },
-        Lugar: {
-          bsonType: "string",
-          description: "Lugar is required",
-        },
-        reportante: {
-          bsonType: "string",
-          description: "reportante is required and must be a valid user",
-        },
-      },
-    },
-  },
-});
+        names: { bsonType: "object", description: "names is required" },
+        phone: { bsonType: "string", description: "apellido is required" },
+        address: { bsonType: "int", description: "dni is required" },
+        email: { bsonType: "string", description: "direccion is required" },
+        genre: { bsonType: "object", description: "genre is required" },
+        attendant: { bsonType: "object", description: "attendant is required" },
+        quotes: { bsonType: "object", description: "quotes is required" },
+      }
+    }
+  }
+})
 
-db.createCollection("Trainer", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      additionalProperties: false,
-      required: [
-        "nombre",
-        "emailPersonal",
-        "emailCorporativo",
-        "TelefonoMovil",
-        "TelefonoResidencia",
-        "TelefonoEmpresa",
-        "TelefonoMovilEmpresa",
-      ],
-      properties: {
-        _id: { bsonType: "objectId" },
-        nombre: {
-          bsonType: "string",
-          description: "nombre is required",
-        },
-        emailPersonal: {
-          bsonType: "string",
-          description: "emailPersonal is required",
-        },
-        emailCorporativo: {
-          bsonType: "string",
-          description: "Area is required",
-        },
-        TelefonoMovil: {
-          bsonType: "int",
-          description: "TelefonoMovil is required",
-        },
-        TelefonoResidencia: {
-          bsonType: "int",
-          description: "TelefonoResidencia is required",
-        },
-        TelefonoEmpresa: {
-          bsonType: "int",
-          description: "TelefonoEmpresa is required",
-        },
-        TelefonoMovilEmpresa: {
-          bsonType: "int",
-          description: "TelefonoMovilEmpresa is required",
-        },
-      },
-    },
-  },
-});
+db.createCollection("doctors", {
+    validator: {
+      $jsonSchema: {
 
+        bsonType: "object",
+        additionalProperties: false,
+        required: ["nameFull", "consultingRoom", "speciality"],
+        properties: {
+          _id: { bsonType: "objectId" },
+          nameFull: { bsonType: "string", description: "nameFull is required and the type string" },
+          speciality: { bsonType: "string", description: "speciality is required and the type string" },
+          consultingRoom: { 
+                bsonType: "object",
+                description: "consultingRoom is required and the type string",
+                required: ["code", "name"],
+                properties: {
+                    name: { bsonType: "string", description: "name is required and the type string" },
+                    code: { bsonType: "int", description: "code is required and the type integer" },
+                }
+            },
+        }
+      }
+    }
+  })

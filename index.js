@@ -23,7 +23,7 @@ index.use(express.json());
 index.use('/user',users)
 
 // Server
-index.listen(index.get(port), () => {
+index.listen(index.get('port'), () => {
   console.log('Server on port ' + index.get('port'));
 });
 
