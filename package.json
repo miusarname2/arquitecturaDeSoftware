@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --quiet index.js"
+    "dev": "nodemon --quiet index.js",
+    "start": "cd view && npm run dev"
   },
   "keywords": [],
   "author": "",
