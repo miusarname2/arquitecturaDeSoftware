@@ -248,3 +248,4 @@ La comprensión de la **arquitectura hexagonal** implica asimilar su enfoque de 
 2. **Puertos:** Los puertos determinan cómo se produce la interacción con el núcleo de la aplicación. Estos puertos únicamente establecen la interfaz, sin especificar una implementación concreta. Por ejemplo, pueden ser responsables de tareas como la creación o eliminación de un usuario, aunque no detallan cómo se lleva a cabo la ejecución de dichas tareas; esto se define en el bloque de código correspondiente.
 
 3. **Adaptadores:** Los adaptadores desempeñan un papel fundamental al encargarse de la transformación de los datos provenientes del núcleo de la aplicación al formato requerido por los puertos.
+   
